@@ -50,8 +50,6 @@ class CanvasElement {
   }
 }
 
-var _renders = []
-
 class Display {
   constructor() {
     console.log("Constructing display...")
@@ -72,9 +70,14 @@ class Display {
     console.log("Canvas properly initalized")
   }
 
-  refresh(self) {
-    for (var i=0;i<_renders.length;i++) {
-      console.log(_renders[i])
+  get_ordered_renders() {
+    return _renders.sort((A,B)=>(A.zorder-B.zorder))
+  }
+
+  refresh() {
+    const renders = this.get_ordered_renders()
+    for (var i=0;i<renders.length;i++) {
+      renders[i].draw(this)
     }
   }
 
