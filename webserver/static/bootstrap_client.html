@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html id="doc">
+  <head on>
+    <title>Illiteracy Engine</title>
+    <link rel="icon" type="image/x-icon" href="/favicon">
+    
+    <script>
+      async function getJS() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+          let tag = document.createElement("script")
+          tag.innerHTML = this.responseText
+          document.getElementsByTagName("head")[0].appendChild(tag)
+
+          try {
+            bootstrap()
+          } catch (e) {
+            console.log(e)
+          }
+        }
+        xhttp.open("GET", "bootstrap-client/js", true);
+        xhttp.send();
+      }
+      async function getCSS() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+          let tag = document.createElement("style")
+          tag.innerHTML = this.responseText
+          document.getElementsByTagName("head")[0].appendChild(tag)
+        }
+        xhttp.open("GET", "bootstrap-client/css", true);
+        xhttp.send();
+      }
+
+      getCSS()
+      setTimeout(getJS,600)
+      console.log("Illiteracy Engine - client v0.0.0alpha")
+    </script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+  <body id="body">
+    <div style="width: 100%;height:100%;">
+      <div class="w3-display-middle w3-center title-container">
+        <img src="/favicon" class="icon-tiny">
+        <h1 class="title-text">Illiteracy Engine</h1>
+        <div class="loader"></div>
+      </div>
+    </div>
+  </body>
+</html>

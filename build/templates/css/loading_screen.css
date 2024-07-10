@@ -1,0 +1,22 @@
+body {
+  background-color: black;
+}
+
+.icon-tiny {
+  width: 50px;
+  height: 50px;
+}
+
+.title-text {
+  color: white;
+}
+
+@keyframes fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.title-container {
+  animation-name: fade-in;
+  animation-duration: 4s;
+}
