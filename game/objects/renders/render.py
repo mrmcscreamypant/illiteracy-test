@@ -12,9 +12,10 @@ _renders = FakeArray()
 
 @regesterObject
 class Render(GameObject):
+    zorder = 0
     def _regester(self):
         super()._init()
-        print(f"Render {self.__class__} regestered")
+        print(f"Render '{self.__class__.__name__}' regestered")
         _renders.push(self)
 
     def draw(self,screen):

@@ -21,10 +21,8 @@ class GameObject:
   """
   
   def __init__(self,build=False,*args):
-    self.client_methods = []
 
     if build:
-      self._regester()
       return
     self._init(*args)
   
